@@ -5,6 +5,7 @@ class UserBase(BaseModel):
     anonymous: bool = True
     name: Optional[str] = None
     email: Optional[EmailStr] = None
+    role: str 
 
 class UserCreate(UserBase):
     password: str

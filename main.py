@@ -21,4 +21,4 @@ app.add_middleware(
 def read_root():
     return {"mensaje": "¡Hola desde FastAPI en Render!"}
 
-app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(users.router, prefix="/users", tags=["user-controller"])

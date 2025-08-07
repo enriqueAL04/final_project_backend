@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import users
 from app.database import engine, Base
-from app.models import user
+from app.models import user 
 
 Base.metadata.create_all(bind=engine)
 
@@ -20,4 +20,5 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"mensaje": "¡Hola desde FastAPI en Render!!"}
+
 app.include_router(users.router, prefix="/user", tags=["user-controller"])

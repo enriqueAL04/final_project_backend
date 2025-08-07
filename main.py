@@ -3,10 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import users
 from app.database import engine
-from app.models import user, psychologist
+from app.models import user
 
 user.Base.metadata.create_all(bind=engine)
-psychologist.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 

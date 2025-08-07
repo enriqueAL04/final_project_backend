@@ -22,7 +22,7 @@ def create_new_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = create_user(db, user)
     return db_user
 
-@router.get("/{user_id}", response_model=UserOut)
+@router.get("/{id}", response_model=UserOut)
 def read_user(user_id: int, db: Session = Depends(get_db)):
     db_user = get_user(db, user_id)
     if not db_user:

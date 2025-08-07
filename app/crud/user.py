@@ -8,7 +8,8 @@ def create_user(db: Session, user: UserCreate):
         email=user.email,
         anonymous=user.anonymous,
         name=user.name,
-        hashed_password=get_password_hash(user.password)
+        hashed_password=get_password_hash(user.password),
+        role=user.role.value if hasattr(user.role, 'value') else user.role 
     )
     db.add(db_user)
     db.commit()

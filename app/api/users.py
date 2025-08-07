@@ -15,6 +15,10 @@ def get_db():
 
 @router.post("/", response_model=UserOut)
 def create_new_user(user: UserCreate, db: Session = Depends(get_db)):
+    allowed_roles = {"user", "psychologist", "admin"}
+    if user.role not in allowed_roles:
+        raise HTTPException(status_code=400, detail="Invalid role")
+    
     db_user = create_user(db, user)
     return db_user
 
